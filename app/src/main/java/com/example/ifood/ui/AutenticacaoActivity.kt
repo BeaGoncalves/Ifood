@@ -30,7 +30,9 @@ class AutenticacaoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setListener()
-        tipoAcesso = binding.switchMaterial
+
+        tipoAcesso = binding.switchMaterialLogin
+
             tipoAcesso.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 binding.linearOpcaoUsuario.visibility = View.VISIBLE
@@ -52,7 +54,7 @@ class AutenticacaoActivity : AppCompatActivity() {
 
         if (!email.isNullOrEmpty()){
             if (!senha.isNullOrEmpty()) {
-                if (binding.switchMaterial.isChecked){
+                if (binding.switchMaterialLogin.isChecked){
                     cadastroUsuario(email, senha)
                 } else {
                     loginUsuario(email, senha)
@@ -121,7 +123,7 @@ class AutenticacaoActivity : AppCompatActivity() {
     }
 
     private fun getTipoUsuario() : String {
-        return if (tipoAcesso.isChecked){
+        return if (binding.switchMaterialUser.isChecked){
             "E"
         } else {
             "U"

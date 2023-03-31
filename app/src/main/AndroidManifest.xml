@@ -17,6 +17,33 @@
         android:theme="@style/Theme.AppCompat.MySplash"
         tools:targetApi="31">
         <activity
+            android:name=".ui.SettingUserActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Ifood"
+            android:parentActivityName=".ui.HomeActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.NewProductActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.HomeEmpresasActivity"
+            android:theme="@style/Theme.Ifood">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.SettingEmpresaActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.HomeEmpresasActivity"
+            android:theme="@style/Theme.Ifood">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.HomeEmpresasActivity"
             android:exported="false"
             android:theme="@style/Theme.Ifood">

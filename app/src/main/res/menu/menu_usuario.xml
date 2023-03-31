@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/settings_usuario"
+            android:title="Configurações"/>
+        <item
+            android:id="@+id/sair_usuario"
+            android:title="Sair"/>
+        <item
+            android:id="@+id/pesquisa"
+            android:icon="@android:drawable/ic_menu_search"
+            app:showAsAction="always"
+            android:title="Pesquisar"
+            app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+</menu>
