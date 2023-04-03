@@ -3,6 +3,7 @@ package com.example.ifood.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -31,6 +32,8 @@ class AutenticacaoActivity : AppCompatActivity() {
 
         setListener()
 
+        setIconEye()
+
         tipoAcesso = binding.switchMaterialLogin
 
             tipoAcesso.setOnCheckedChangeListener { _, isChecked ->
@@ -40,6 +43,11 @@ class AutenticacaoActivity : AppCompatActivity() {
                 binding.linearOpcaoUsuario.visibility = View.GONE
             }
         }
+    }
+
+    private fun setIconEye() {
+
+
     }
 
 

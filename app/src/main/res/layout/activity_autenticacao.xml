@@ -50,6 +50,8 @@
         app:layout_constraintTop_toBottomOf="@id/text_input_email"
         android:layout_marginTop="8dp"
         android:hint="Senha"
+        app:passwordToggleEnabled="true"
+        app:endIconCheckable="false"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="18dp">
@@ -59,7 +61,7 @@
             android:id="@+id/edit_text_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
