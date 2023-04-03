@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.text.Editable
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -19,13 +20,20 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
+import com.bumptech.glide.Glide
 import com.example.ifood.R
 import com.example.ifood.databinding.ActivitySettingEmpresaBinding
 import com.example.ifood.helper.FirebaseConfig
 import com.example.ifood.helper.UserFirebase
 import com.example.ifood.model.Empresa
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 import java.io.ByteArrayOutputStream
 
 class SettingEmpresaActivity : AppCompatActivity() {
@@ -36,6 +44,7 @@ class SettingEmpresaActivity : AppCompatActivity() {
     private lateinit var idUserLogged : String
     private lateinit var resultGalery : ActivityResultLauncher<Intent>
     private lateinit var requestGalery : ActivityResultLauncher<String>
+    private lateinit var firebaseRef : DatabaseReference
     private var urlIniciada : Uri? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -46,6 +55,7 @@ class SettingEmpresaActivity : AppCompatActivity() {
 
        storageReference = FirebaseConfig.getInstanceStorage()
         idUserLogged  = UserFirebase.getIdUser()
+        firebaseRef = FirebaseConfig.getInstanceDataBase()
         
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.title = "Configurações"
@@ -56,11 +66,46 @@ class SettingEmpresaActivity : AppCompatActivity() {
         setListener()
         setRequestGalery()
         setResultGalery()
+        recuperarDadosEmpresa()
       //  setImageProfile()
 
         binding.appCompatButtoSalvar.setOnClickListener {
             validarDadosEmpresas()
         }
+    }
+
+    private fun recuperarDadosEmpresa() {
+        val empresaRef = firebaseRef
+            .child("empresas")
+            .child(idUserLogged)
+            empresaRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot != null) {
+                        val empresa = snapshot.getValue(Empresa()::class.java)
+                        binding.editTextNomeEmpresa.setText( empresa?.nome)
+                        binding.editTextCategoriaEmpresa.setText(empresa?.categoria)
+                        binding.editTextTaxaEntrega.setText(empresa?.precoEntrega.toString())
+                        binding.editTempoEspera.setText(empresa?.tempo)
+
+
+                        val url = empresa?.urlImagem
+                            if (url.toString() != ""){
+                                Glide.with(this@SettingEmpresaActivity)
+                                    .load(url)
+                                    .into(binding.profileImage)
+
+                            } else {
+                                binding.profileImage.setImageResource(R.drawable.perfil)
+                            }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(this@SettingEmpresaActivity, "algo deu errado", Toast.LENGTH_SHORT).show()
+                    Log.d(TAG, "onCancelled: ${error.message}")
+                }
+
+            })
     }
 
     private fun setRequestGalery() {
