@@ -28,6 +28,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:hint="Email"
+        app:errorTextColor="@color/black"
         android:layout_marginBottom="18dp">
 
 
@@ -51,6 +52,7 @@
         android:layout_marginTop="8dp"
         android:hint="Senha"
         app:passwordToggleEnabled="true"
+        app:errorTextColor="@color/black"
         app:endIconCheckable="false"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
@@ -61,7 +63,8 @@
             android:id="@+id/edit_text_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 

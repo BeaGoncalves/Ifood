@@ -15,27 +15,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image_produto"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:src="@drawable/perfil"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/include_toolbar"
-        tools:ignore="ImageContrastCheck"
-        android:focusable="true" />
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_nome_empresa"
+        android:id="@+id/text_input_nome_produto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_produto"
+        app:layout_constraintTop_toBottomOf="@id/include_toolbar"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
@@ -44,7 +32,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_nome_empresa"
+            android:id="@+id/edit_text_nome_produto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
@@ -54,12 +42,12 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_descricao_empresa"
+        android:id="@+id/text_input_descricao_produto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_input_nome_empresa"
+        app:layout_constraintTop_toBottomOf="@id/text_input_nome_produto"
         android:layout_marginTop="8dp"
         android:hint="Descrição"
         android:layout_marginEnd="32dp"
@@ -68,7 +56,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_descricao_empresa"
+            android:id="@+id/edit_text_descricao_produto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="4"
@@ -82,7 +70,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_input_descricao_empresa"
+        app:layout_constraintTop_toBottomOf="@id/text_input_descricao_produto"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
