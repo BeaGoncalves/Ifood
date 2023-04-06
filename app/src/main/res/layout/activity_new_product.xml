@@ -94,7 +94,7 @@
         android:layout_margin="32dp"
         android:layout_marginTop="72dp"
         android:backgroundTint="#A50A15"
-        android:text="Acessar"
+        android:text="Adicionar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16dp"
