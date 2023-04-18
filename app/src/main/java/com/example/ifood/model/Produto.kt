@@ -3,11 +3,11 @@ package com.example.ifood.model
 import com.example.ifood.helper.FirebaseConfig
 
 data class Produto(
-    val idUser: String? = null,
-    var idProdutos : String? = null,
-    var nome : String? = null,
-    var descricao: String? = null,
-    var preco: Double? = 0.0
+    val idUser: String = "",
+    var idProdutos : String = "",
+    var nome : String = "",
+    var descricao: String = "",
+    var preco: Double = 0.0
 ){
 
     init{

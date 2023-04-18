@@ -17,10 +17,18 @@
         android:theme="@style/Theme.AppCompat.MySplash"
         tools:targetApi="31">
         <activity
+            android:name=".ui.FinalizarCompraActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Ifood">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.CardapioActivity"
             android:exported="false"
-            android:theme="@style/Theme.Ifood"
-            android:parentActivityName=".ui.HomeActivity">
+            android:parentActivityName=".ui.HomeActivity"
+            android:theme="@style/Theme.Ifood">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
