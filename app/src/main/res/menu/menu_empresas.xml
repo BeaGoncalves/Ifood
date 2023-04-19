@@ -12,5 +12,10 @@
         android:icon="@drawable/ic_baseline_add_circle_24"
         app:showAsAction="always"
         android:title="novo produto"/>
+    <item
+        android:id="@+id/pedidos_menu"
+        android:icon="@drawable/ic_baseline_assignment_24"
+        app:showAsAction="always"
+        android:title="Pedidos"/>
 
 </menu>

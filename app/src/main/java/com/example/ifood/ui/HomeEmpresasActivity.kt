@@ -128,6 +128,7 @@ class HomeEmpresasActivity : AppCompatActivity() {
             R.id.sair_empresas -> deslogarUser()
             R.id.settings -> abrirConfiguracoes()
             R.id.adicionar -> abrirNovoProduto()
+            R.id.pedidos_menu -> startActivity(Intent(this, PedidosActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }

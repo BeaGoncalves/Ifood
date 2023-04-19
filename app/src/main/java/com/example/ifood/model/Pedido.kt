@@ -40,6 +40,20 @@ data class Pedido(
                 pedidoRef.setValue(this)
         }
 
+        fun atualizarStatus() {
+
+                val status = hashMapOf<String, Any>()
+                status["status"] = this.status
+
+
+                val firebaseRef = FirebaseConfig.getInstanceDataBase()
+                val statusRef = firebaseRef
+                        .child("pedidos")
+                        .child(idEmpresa)
+                        .child(idPedido)
+                statusRef.updateChildren(status)
+        }
+
 
 }
 
